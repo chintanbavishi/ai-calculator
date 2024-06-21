@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI in HR: ROI Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+      background-color: #f7fafc;
+    }
+
+    .card {
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+      background-color: white;
+      border: 1px solid #e2e8f0;
+    }
+
+    .card-header {
+      padding: 20px;
+      color: white;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-cols-1 {
+      grid-template-columns: 1fr;
+    }
+
+    .md-grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #4A5568;
+    }
+
+    .input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #CBD5E0;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .result-card {
+      text-align: center;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .result-card h3 {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .result-card p {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .bg-blue-100 {
+      background-color: #ebf8ff;
+    }
+
+    .text-blue-800 {
+      color: #2b6cb0;
+    }
+
+    .text-blue-600 {
+      color: #3182ce;
+    }
+
+    .bg-green-100 {
+      background-color: #f0fff4;
+    }
+
+    .text-green-800 {
+      color: #2f855a;
+    }
+
+    .text-green-600 {
+      color: #38a169;
+    }
+
+    .bg-purple-100 {
+      background-color: #faf5ff;
+    }
+
+    .text-purple-800 {
+      color: #6b46c1;
+    }
+
+    .text-purple-600 {
+      color: #805ad5;
+    }
+
+    .bg-gradient-blue-purple {
+      background: linear-gradient(to right, #4299e1, #9f7aea);
+    }
+
+    .bg-gradient-green-teal {
+      background: linear-gradient(to right, #48bb78, #38b2ac);
+    }
+
+    .text-indigo-600 {
+      color: #5a67d8;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .md-grid-cols-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="card-header bg-gradient-blue-purple">
+      <h2 class="card-title">AI in HR: ROI Calculator</h2>
+    </div>
+    <div class="card-content">
+      <div class="grid grid-cols-2">
+        <div>
+          <label for="employees" class="label">Employees</label>
+          <input id="employees" name="employees" type="number" class="input" min="0" value="100" oninput="handleInputChange(event)">
+        </div>
+        <div>
+          <label for="hrStaff" class="label">HR Staff</label>
+          <input id="hrStaff" name="hrStaff" type="number" class="input" min="0" value="5" oninput="handleInputChange(event)">
+        </div>
+        <div>
+          <label for="avgHRSalary" class="label">Avg HR Salary</label>
+          <input id="avgHRSalary" name="avgHRSalary" type="number" class="input" min="0" value="1000000" oninput="handleInputChange(event)">
+        </div>
+        <div>
+          <label for="questionsPerDay" class="label">Questions Per Day</label>
+          <input id="questionsPerDay" name="questionsPerDay" type="number" class="input" min="0" value="50" oninput="handleInputChange(event)">
+        </div>
+        <div>
+          <label for="minutesPerQuery" class="label">Minutes Per Query</label>
+          <input id="minutesPerQuery" name="minutesPerQuery" type="number" class="input" min="0" value="10" oninput="handleInputChange(event)">
+        </div>
+        <div>
+          <label for="albusAccuracy" class="label">Albus Accuracy</label>
+          <input id="albusAccuracy" name="albusAccuracy" type="number" class="input" min="0" max="100" value="75" oninput="handleInputChange(event)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header bg-gradient-green-teal">
+      <h2 class="card-title">Calculated ROI</h2>
+    </div>
+    <div class="card-content">
+      <div class="grid grid-cols-1">
+        <div class="result-card bg-blue-100">
+          <h3 id="timeSaved" class="text-blue-800">0</h3>
+          <p class="text-blue-600">Hours Saved per Year</p>
+        </div>
+        <div class="result-card bg-green-100">
+          <h3 id="workingDaysSaved" class="text-green-800">0</h3>
+          <p class="text-green-600">Working Days Saved</p>
+        </div>
+        <div class="result-card bg-purple-100">
+          <h3 id="moneySaved" class="text-purple-800">₹0</h3>
+          <p class="text-purple-600">Money Saved per Year</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-content">
+      <p class="text-center">Imagine investing <strong class="text-indigo-600" id="investHours">0 hours</strong> on actual strategy and initiatives that matter for your employees and company!</p>
+    </div>
+  </div>
+
+  <script>
+    const inputs = {
+      employees: 100,
+      hrStaff: 5,
+      avgHRSalary: 1000000,
+      questionsPerDay: 50,
+      minutesPerQuery: 10,
+      albusAccuracy: 75,
+    };
+
+    function handleInputChange(event) {
+      const { name, value } = event.target;
+      inputs[name] = Math.max(0, parseInt(value, 10)) || 0;
+      calculateROI();
+    }
+
+    function calculateROI() {
+      const workdaysPerYear = 260;
+      const workhoursPerDay = 8;
+
+      const totalQuestionsHandledByAI = Math.ceil(inputs.questionsPerDay * (inputs.albusAccuracy / 100));
+      const minutesSavedPerDay = totalQuestionsHandledByAI * inputs.minutesPerQuery;
+      const hoursSavedPerYear = Math.ceil((minutesSavedPerDay * workdaysPerYear) / 60);
+      const totalHRCostPerYear = inputs.avgHRSalary * inputs.hrStaff;
+      const moneySavedPerYear = Math.ceil((hoursSavedPerYear / (workdaysPerYear * workhoursPerDay)) * totalHRCostPerYear);
+      const workingDaysSaved = Math.ceil(hoursSavedPerYear / workhoursPerDay);
+
+      document.getElementById('timeSaved').innerText = hoursSavedPerYear;
+      document.getElementById('moneySaved').innerText = `₹${moneySavedPerYear.toLocaleString('en-IN')}`;
+      document.getElementById('workingDaysSaved').innerText = workingDaysSaved;
+      document.getElementById('investHours').innerText = hoursSavedPerYear;
+    }
+
+    calculateROI();
+  </script>
+</body>
+
+</html>
