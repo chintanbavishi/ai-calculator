@@ -144,10 +144,48 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* New styles for logo and CTA */
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: auto;
+    }
+
+    .cta-box {
+      background-color: #4299e1;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: white;
+      color: #4299e1;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #2b6cb0;
+      color: white;
+    }
   </style>
 </head>
 
 <body>
+  <a href="https://www.springworks.in/albus/" target="_blank">
+    <img src="https://github.com/chintanbavishi/ai-calculator/assets/51471646/e39ee6ab-6081-4841-a4a8-a938a84c78c5" alt="Albus Logo" class="logo">
+  </a>
+
   <div class="card">
     <div class="card-header bg-gradient-blue-purple">
       <h2 class="card-title">The cost of "quick" questions</h2>
@@ -202,6 +240,11 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Scary! What's the solution?</h3>
+    <a href="https://www.springworks.in/albus/its-just-a-quick-question" class="cta-button" target="_blank">Learn More</a>
   </div>
 
   <div class="card">
