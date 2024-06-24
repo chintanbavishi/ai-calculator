@@ -238,7 +238,7 @@
       const workingDaysSaved = Math.ceil(hoursSavedPerYear / workhoursPerDay);
 
       document.getElementById('timeSaved').innerText = hoursSavedPerYear;
-      document.getElementById('moneySaved').innerText = `${moneySavedPerYear.toLocaleString('en-IN')}`;
+      document.getElementById('moneySaved').innerText = `$${moneySavedPerYear.toLocaleString('en-IN')}`;
       document.getElementById('workingDaysSaved').innerText = workingDaysSaved;
       document.getElementById('investHours').innerText = hoursSavedPerYear;
     }
