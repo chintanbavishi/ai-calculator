@@ -14,6 +14,29 @@
       background-color: #f7fafc;
     }
 
+    .logo-container {
+      margin-bottom: 15px;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+
+    .main-content {
+      margin-top: 15px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(to right, #4299e1, #9f7aea);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 0; /* Changed from 20px to 0 */
+    }
+
     .card {
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -139,121 +162,105 @@
       text-align: center;
     }
 
+    .cta-box {
+      background-color: #ffd700;
+      color: #000;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 300px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .cta-box:hover {
+      background-color: #ffed4a;
+    }
+
     @media (max-width: 768px) {
       .md-grid-cols-3 {
         grid-template-columns: 1fr;
       }
     }
-
-    /* New styles for logo and CTA */
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 100px;
-      height: auto;
-    }
-
-    .cta-box {
-      background-color: #4299e1;
-      color: white;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .cta-button {
-      display: inline-block;
-      background-color: white;
-      color: #4299e1;
-      padding: 10px 20px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .cta-button:hover {
-      background-color: #2b6cb0;
-      color: white;
-    }
   </style>
 </head>
 
 <body>
-  <a href="https://www.springworks.in/albus/" target="_blank">
+  <div class="logo-container">
     <img src="https://github.com/chintanbavishi/ai-calculator/assets/51471646/e39ee6ab-6081-4841-a4a8-a938a84c78c5" alt="Albus Logo" class="logo">
-  </a>
+  </div>
 
-  <div class="card">
-    <div class="card-header bg-gradient-blue-purple">
-      <h2 class="card-title">The cost of "quick" questions</h2>
-    </div>
-    <div class="card-content">
-      <div class="grid grid-cols-2">
-        <div>
-          <label for="employees" class="label">Number of employees</label>
-          <input id="employees" name="employees" type="number" class="input" min="0" value="100" oninput="handleInputChange(event)">
-        </div>
-        <div>
-          <label for="hrStaff" class="label">Number of HR in your org</label>
-          <input id="hrStaff" name="hrStaff" type="number" class="input" min="0" value="5" oninput="handleInputChange(event)">
-        </div>
-        <div>
-          <label for="avgHRSalary" class="label">Average HR staff salary ($)</label>
-          <input id="avgHRSalary" name="avgHRSalary" type="number" class="input" min="0" value="1000000" oninput="handleInputChange(event)">
-        </div>
-        <div>
-          <label for="questionsPerDay" class="label">Avg number of questions employees ask everyday</label>
-          <input id="questionsPerDay" name="questionsPerDay" type="number" class="input" min="0" value="50" oninput="handleInputChange(event)">
-        </div>
-        <div>
-          <label for="minutesPerQuery" class="label">Average minutes spent per question</label>
-          <input id="minutesPerQuery" name="minutesPerQuery" type="number" class="input" min="0" value="10" oninput="handleInputChange(event)">
-        </div>
-        <div>
-          <label for="albusAccuracy" class="label">Albus AI Accuracy (%)</label>
-          <input id="albusAccuracy" name="albusAccuracy" type="number" class="input" min="0" max="100" value="75" oninput="handleInputChange(event)">
+  <div class="main-content">
+    <h1 class="title">The cost of "quick" questions</h1>
+
+    <div class="card">
+      <div class="card-content">
+        <div class="grid grid-cols-2">
+          <div>
+            <label for="employees" class="label">Number of employees</label>
+            <input id="employees" name="employees" type="number" class="input" min="0" value="100" oninput="handleInputChange(event)">
+          </div>
+          <div>
+            <label for="hrStaff" class="label">Number of HR in your org</label>
+            <input id="hrStaff" name="hrStaff" type="number" class="input" min="0" value="5" oninput="handleInputChange(event)">
+          </div>
+          <div>
+            <label for="avgHRSalary" class="label">Average HR staff salary ($)</label>
+            <input id="avgHRSalary" name="avgHRSalary" type="number" class="input" min="0" value="1000000" oninput="handleInputChange(event)">
+          </div>
+          <div>
+            <label for="questionsPerDay" class="label">Avg number of questions employees ask everyday</label>
+            <input id="questionsPerDay" name="questionsPerDay" type="number" class="input" min="0" value="50" oninput="handleInputChange(event)">
+          </div>
+          <div>
+            <label for="minutesPerQuery" class="label">Average minutes spent per question</label>
+            <input id="minutesPerQuery" name="minutesPerQuery" type="number" class="input" min="0" value="10" oninput="handleInputChange(event)">
+          </div>
+          <div>
+            <label for="albusAccuracy" class="label">Albus AI Accuracy (%)</label>
+            <input id="albusAccuracy" name="albusAccuracy" type="number" class="input" min="0" max="100" value="75" oninput="handleInputChange(event)">
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <div class="card-header bg-gradient-green-teal">
-      <h2 class="card-title">Calculated ROI for HR team</h2>
-    </div>
-    <div class="card-content">
-      <div class="grid grid-cols-1">
-        <div class="result-card bg-blue-100">
-          <h3 id="timeSaved" class="text-blue-800">0</h3>
-          <p class="text-blue-600">Total hours saved annually</p>
-        </div>
-        <div class="result-card bg-green-100">
-          <h3 id="workingDaysSaved" class="text-green-800">0</h3>
-          <p class="text-green-600">Working days saved</p>
-        </div>
-        <div class="result-card bg-purple-100">
-          <h3 id="moneySaved" class="text-purple-800">₹0</h3>
-          <p class="text-purple-600">Money saved per year</p>
+    <div class="card">
+      <div class="card-header bg-gradient-green-teal">
+        <h2 class="card-title">Calculated ROI for HR team</h2>
+      </div>
+      <div class="card-content">
+        <div class="grid grid-cols-1">
+          <div class="result-card bg-blue-100">
+            <h3 id="timeSaved" class="text-blue-800">0</h3>
+            <p class="text-blue-600">Total hours saved annually</p>
+          </div>
+          <div class="result-card bg-green-100">
+            <h3 id="workingDaysSaved" class="text-green-800">0</h3>
+            <p class="text-green-600">Working days saved</p>
+          </div>
+          <div class="result-card bg-purple-100">
+            <h3 id="moneySaved" class="text-purple-800">₹0</h3>
+            <p class="text-purple-600">Money saved per year</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="cta-box">
-    <h3>Scary! What's the solution?</h3>
-    <a href="https://www.springworks.in/albus/its-just-a-quick-question" class="cta-button" target="_blank">Learn More</a>
-  </div>
+    <div class="cta-box" onclick="window.location.href='https://calendly.com/albus-sw/1v1-with-albus-team';">
+      Scary! what's the solution?
+    </div>
 
-  <div class="card">
-    <div class="card-content">
-      <p class="text-center"> Just imagine spending <strong class="text-indigo-600" id="investHours">0 hours</strong> hours on real strategies and initiatives that actually matter to your employees and company! </p>
+    <div class="card">
+      <div class="card-content">
+        <p class="text-center"> Just imagine spending <strong class="text-indigo-600" id="investHours">0 hours</strong> hours on real strategies and initiatives that actually matter to your employees and company! </p>
+      </div>
     </div>
   </div>
 
   <script>
+    // The JavaScript remains unchanged
     const inputs = {
       employees: 100,
       hrStaff: 5,
