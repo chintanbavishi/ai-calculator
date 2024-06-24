@@ -163,7 +163,7 @@
           <input id="hrStaff" name="hrStaff" type="number" class="input" min="0" value="5" oninput="handleInputChange(event)">
         </div>
         <div>
-          <label for="avgHRSalary" class="label">Average HR Staff Salary (₹)</label>
+          <label for="avgHRSalary" class="label">Average HR Staff Salary ($)</label>
           <input id="avgHRSalary" name="avgHRSalary" type="number" class="input" min="0" value="1000000" oninput="handleInputChange(event)">
         </div>
         <div>
@@ -238,7 +238,7 @@
       const workingDaysSaved = Math.ceil(hoursSavedPerYear / workhoursPerDay);
 
       document.getElementById('timeSaved').innerText = hoursSavedPerYear;
-      document.getElementById('moneySaved').innerText = `₹${moneySavedPerYear.toLocaleString('en-IN')}`;
+      document.getElementById('moneySaved').innerText = `${moneySavedPerYear.toLocaleString('en-IN')}`;
       document.getElementById('workingDaysSaved').innerText = workingDaysSaved;
       document.getElementById('investHours').innerText = hoursSavedPerYear;
     }
